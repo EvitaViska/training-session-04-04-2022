@@ -15,8 +15,9 @@ public class Main {
     //  main.task3();
     //  main.task4();
     //  main.task5();
-    //  main.task6();
-      main.switchStatements();
+    //main.task6();
+    main.task7();
+    //  main.switchStatements();
 
     }
 
@@ -87,8 +88,40 @@ public class Main {
         double income = scanner.nextDouble();
 
         if (income < 85528){
-            System.out.println("The amount of tax: " + (income * 0.18 - 556.02));
+            System.out.println("The amount of personal income tax: " + (income * 0.18 - 556.02));
+        } else if (income >= 85528){
+            System.out.println("The amount of personal income tax: " + (14839.02 + 0.32 * (income - 85528)));
         }
+    }
+
+    void task7(){
+        System.out.println("Task 7");
+
+        System.out.println("Please input the loan amount: ");
+        double loanAmount = scanner.nextDouble();
+
+        System.out.println("Please input the number of installments: ");
+        int numberOfInstallments = scanner.nextInt();
+
+        if (loanAmount > 10000 || loanAmount < 100){
+            loanAmount = 5000;
+        }
+
+        if (numberOfInstallments > 48 || numberOfInstallments < 6){
+            numberOfInstallments = 36;
+        }
+
+        double interest;
+
+        if (numberOfInstallments >= 6 && numberOfInstallments <= 12){
+            interest = 0.025;
+        } else if (numberOfInstallments <= 24){
+            interest = 0.05;
+        } else {
+            interest = 0.10;
+        }
+
+        System.out.println("The amount of monthly installment: " + ((loanAmount * (1+interest)) / numberOfInstallments));
 
     }
 
@@ -167,6 +200,5 @@ public class Main {
         //Print error message if operation not valid - default
 
     }
-
 
 }
